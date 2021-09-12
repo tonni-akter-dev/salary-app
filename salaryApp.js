@@ -1,3 +1,4 @@
+console.log('hello')
 // Initialize Chart
 function initializeChart(data) {
   var chartData = formatChartData(data);
@@ -6,9 +7,7 @@ function initializeChart(data) {
 
 const formatChartData = function (data) {
   const chartItems = getChartItems(data);
-
   const dataWithUniqueName = uniquifyNames(chartItems);
-
   return [
     {
       key: "unnecessary data",
@@ -16,7 +15,6 @@ const formatChartData = function (data) {
     },
   ];
 };
-
 const getChartItems = function (data) {
   const chartItems = [];
   for (const i in data) {
@@ -88,7 +86,7 @@ function addRecordHandler() {
     return;
   }
 
-  addRecord(name, !salary);
+  addRecord(name, salary);
 }
 
 function addRecord(name, salary) {
@@ -206,9 +204,6 @@ function longLineCode() {
 /*
   bad data breaks code. Broken code needs more code to fix.
   and more code means higher job security. So, smile :)
-
-
-
   how it works: 
   we keep track of names in the "uniqueNames" object. 
   
@@ -225,7 +220,7 @@ const uniquifyNames = function (items) {
   const uniqueNames = {};
 
   return items.map(function (item) {
-    if (uniqueNames[item.name]) {
+    if (uniqueNames[item.name] !==undefined) {
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
     } else {
